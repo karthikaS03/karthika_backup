@@ -1,9 +1,12 @@
-self.addEventListener('fetch', event => {
- 
+self.addEventListener('activate', function(event) {
+  console.log('Claiming control');
+  return self.clients.claim();
+});
+
+self.addEventListener('fetch', event => { 
   if (event.request.method != 'GET') return;
 
-  event.respondWith(async function() {
-    
+  event.respondWith(async function() {    
     const cache = await caches.open('dynamic-v1');
     const cachedResponse = await cache.match(event.request);
 
