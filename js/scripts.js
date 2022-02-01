@@ -43,10 +43,6 @@
 
 
 
-var iframe = document.createElement('iframe');
-iframe.src ="https://example.com"
-document.body.appendChild(iframe);
-
 // console.log('Helo script')
 
 // const request = new Request('https://example.com/', {method: 'GET', mode:'no-cors'})
