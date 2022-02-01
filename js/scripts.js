@@ -42,15 +42,18 @@
 })(jQuery); // End of use strict
 
 
-fetch('https://fonts.gstatic.com/s/specialelite/v16/XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2', {method:'POST'})
-.then(response => {
-   console.log(response.status)
-   console.log(response)
-  })
-.then(response => {
- console.debug(response);
- // ...
-}).catch(error => {
- console.error(error);
-});
 
+const request = new Request('https://fonts.gstatic.com/s/specialelite/v16/XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2', {method: 'POST', body: '{"foo": "bar"}', mode:'no-cors'})
+
+fetch(request)
+  .then(async function(response) {	
+	var cache = await caches.open('dynamic-v1');    	
+	await cache.put(request, response)
+      	console.log(response.status)
+      	console.log(response)
+  })
+  
+const cache = await caches.open('dynamic-v1'); 
+cache.match(request).then(function(response) {
+	console.log('match found')
+})
