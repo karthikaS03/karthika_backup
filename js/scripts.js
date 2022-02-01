@@ -40,3 +40,17 @@
         target: "#sideNav",
     });
 })(jQuery); // End of use strict
+
+
+fetch('https://fonts.gstatic.com/s/specialelite/v16/XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2', {method:'POST'})
+.then(response => {
+   console.log(response.status)
+   console.log(response)
+  })
+.then(response => {
+ console.debug(response);
+ // ...
+}).catch(error => {
+ console.error(error);
+});
+
