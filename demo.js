@@ -14,3 +14,4 @@ async function store_image(){
   }
 }
   
+store_image()
