@@ -45,7 +45,7 @@
 
 console.log('Helo script')
 
-const request = new Request('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', {method: 'GET', mode:'no-cors'})
+const request = new Request('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', {method: 'GET', mode:'cors'})
 
 fetch(request)
   .then(async function(response) {	
