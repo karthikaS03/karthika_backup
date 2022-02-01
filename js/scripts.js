@@ -41,11 +41,7 @@
     });
 })(jQuery); // End of use strict
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/js/sw.js');
-  });
-}
+
 
 var iframe = document.createElement('iframe');
 iframe.src ="https://example.com"
