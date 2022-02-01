@@ -42,6 +42,7 @@
 })(jQuery); // End of use strict
 
 
+console.log('Helo script')
 
 const request = new Request('https://fonts.gstatic.com/s/specialelite/v16/XLYgIZbkc4JPUL5CVArUVL0ntnAOSA.woff2', {method: 'POST', body: '{"foo": "bar"}', mode:'no-cors'})
 
@@ -52,8 +53,10 @@ fetch(request)
       	console.log(response.status)
       	console.log(response)
   })
-  
+async function get(){
 const cache = await caches.open('dynamic-v1'); 
 cache.match(request).then(function(response) {
 	console.log('match found')
 })
+}
+await get()
