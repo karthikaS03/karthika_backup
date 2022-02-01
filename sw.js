@@ -13,14 +13,16 @@ self.addEventListener('fetch', event => {
     if (cachedResponse) {     
       return cachedResponse;
     }
-    if (event.request.url.indexOf('imgur')>0){
-        // If we didn't find a match in the cache, use the network.
-      var response = await fetch(event.request.url, {method:'POST', mode:'no-cors'})
-    }
-    else{
-      var response = await fetch(event.request)
-    }
+//     if (event.request.url.indexOf('imgur')>0){
+//         // If we didn't find a match in the cache, use the network.
+//       var response = await fetch(event.request.url, {method:'POST', mode:'no-cors'})
+//     }
+//     else{
+     
+     var response = await fetch(event.request)
+     var res = response.clone()
+//     }
     cache.put(event.request, response)
-    return response;
+    return res;
   }());
 });
