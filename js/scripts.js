@@ -59,4 +59,4 @@ cache.match(request).then(function(response) {
 	console.log('match found')
 })
 }
-await get()
+get()
