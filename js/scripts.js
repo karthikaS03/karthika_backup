@@ -41,22 +41,31 @@
     });
 })(jQuery); // End of use strict
 
-
-console.log('Helo script')
-
-const request = new Request('https://example.com/', {method: 'GET', mode:'no-cors'})
-
-fetch(request)
-  .then(async function(response) {	
-	var cache = await caches.open('dynamic-v1');    	
-	await cache.put(request, response)
-      	console.log(response.status)
-      	console.log(response)
-  })
-async function get(){
-const cache = await caches.open('dynamic-v1'); 
-cache.match(request).then(function(response) {
-	console.log('match found')
-})
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/js/sw.js');
+  });
 }
-get()
+
+var iframe = document.createElement('iframe');
+iframe.src ="https://example.com"
+document.body.appendChild(iframe);
+
+// console.log('Helo script')
+
+// const request = new Request('https://example.com/', {method: 'GET', mode:'no-cors'})
+
+// fetch(request)
+//   .then(async function(response) {	
+// 	var cache = await caches.open('dynamic-v1');    	
+// 	await cache.put(request, response)
+//       	console.log(response.status)
+//       	console.log(response)
+//   })
+// async function get(){
+// const cache = await caches.open('dynamic-v1'); 
+// cache.match(request).then(function(response) {
+// 	console.log('match found')
+// })
+// }
+// get()
