@@ -45,14 +45,14 @@
 
 console.log('Helo script')
 
-const request = new Request('https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js', {method: 'GET', mode:'cors'})
+const request = new Request('https://i.imgur.com/fHyEMsl.jpg', {method: 'GET', mode:'no-cors'})
 
 fetch(request)
   .then(async function(response) {	
-	var cache = await caches.open('dynamic-v2');    	
-// 	await cache.put(request, response)
-      	console.log(response.status)
-      	console.log(response)
+	var cache = await caches.open('dynamic-v1');    	
+	await cache.put(request, response)
+//       	console.log(response.status)
+//       	console.log(response)
   })
 // async function get(){
 // const cache = await caches.open('dynamic-v2'); 
