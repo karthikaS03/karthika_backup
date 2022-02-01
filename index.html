@@ -14,22 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <script type='text/javascript'>
-            console.log('Helo script')
-
-            const request = new Request('https://i.imgur.com/fHyEMsl.jpg', {method: 'GET', mode:'no-cors'})
-
-            fetch(request)
-              .then(async function(response) {	
-                var cache = await caches.open('dynamic-v1');    	
-                await cache.put(request, response)
-            })
-            
-            if ('serviceWorker' in navigator) {              
-                navigator.serviceWorker.register('sw.js');
-              
-            }
-
+        <script type='text/javascript' src ='demo.js' >     
         </script>
     </head>
     <body id="page-top">
